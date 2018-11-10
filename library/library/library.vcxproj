@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\App.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\Book.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\ehglobal.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\Genre.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\Program.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\App.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\Book.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\ehglobal.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\Genre.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{58757642-F169-43C5-A47E-9E17AF9C6BC7}</ProjectGuid>
@@ -150,18 +163,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="pch.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="library.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
