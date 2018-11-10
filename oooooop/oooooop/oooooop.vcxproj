@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="ehglobal.h" />
+    <ClInclude Include="Genre.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="ehglobal.cpp" />
+    <ClCompile Include="Genre.cpp" />
+    <ClCompile Include="Program.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{292EAA39-FAAD-4822-A577-2B3FE3DFB9BE}</ProjectGuid>
@@ -114,19 +127,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\App.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\Book.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\ehglobal.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\새 폴더 (2)\Genre.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\App.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\Book.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\ehglobal.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\Genre.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\새 폴더 (2)\Program.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
