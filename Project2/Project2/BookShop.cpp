@@ -157,7 +157,7 @@
 		cout << "생년월일 : "; cin.getline(str, 100);
 		string birth_ = str;
 		for (size_t i = 0; i < m_users.size(); i++) {
-			if ((m_users[i].getName() == name_)&&(m_users[i].getBirth() == name_)) {
+			if ((m_users[i].getName() == name_)&&(m_users[i].getBirth() == birth_)) {
 				cout << "유저가 삭제되었습니다." << endl;
 				m_users.erase(m_users.begin() + i);
 				check = true;
