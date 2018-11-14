@@ -94,6 +94,16 @@ private:
 		}
 		return NULL;
 	}
+	// 도서 추천 내부 함수.
+	Book* random_book()
+	{
+		for (int i = 0; i < m_books.size(); i++)
+		{
+			
+			cout << rand() << endl;
+			return 0;
+		}
+	}
 
 public:
 	// 생성자 - 파일 읽기.
@@ -214,30 +224,7 @@ public:
 		cout << "유저가 추가되었습니다." << endl;
 		system("pause");
 	}
-	// 유저 삭제 함수
-	void DeleteUser()
-	{
-		bool check = false;
-		char str[100];
-		User user;
-		cin.sync();
-		cin.ignore();
-		cout << "이름 : "; cin.getline(str, 100);
-		string name_ = str;
-		cout << "생년월일 : "; cin.getline(str, 100);
-		string birth_ = str;
-		for (size_t i = 0; i < m_users.size(); i++) {
-			if ((m_users[i].name == name_) && (m_users[i].birth == birth_)) {
-				cout << "유저가 삭제 되었습니다." << endl;
-				m_users.erase(m_users.begin() + i);
-				check = true;
-			}
-		}
-		if (check == false) {
-			cout << "존재하지 않는 유저입니다." << endl;
-		}
-		system("pause");
-	}
+	void DeleteUser();
 	// 도서 추가 함수.
 	void AddBook()
 	{
@@ -250,28 +237,6 @@ public:
 		cout << "수량 : "; cin >> book.count;
 		m_books.push_back(book);
 		cout << "도서가 추가되었습니다." << endl;
-		system("pause");
-	}
-	//도서 삭제 함수
-	void DeleteBook()
-	{
-		bool check = false;
-		char str[100];
-		Book book;
-		cin.sync();
-		cin.ignore();
-		cout << "제목 : "; cin.getline(str, 100);
-		string title_ = str;
-		for (size_t i = 0; i < m_books.size(); i++) {
-			if (m_books[i].title == title_) {
-				cout << "책이 삭제 되었습니다." << endl;
-				m_books.erase(m_books.begin() + i);
-				check = true;
-			}
-		}
-		if (check == false) {
-			cout << "존재하지 않는 책입니다." << endl;
-		}
 		system("pause");
 	}
 	// 유저 검색 함수.
@@ -296,6 +261,14 @@ public:
 		Book* book = find_book(title);
 		if (book) cout << book << endl;
 		else cout << "검색하려는 책이 존재하지 않습니다." << endl;
+		system("pause");
+	}
+	//도서 추천 함수.
+	void RandomBook()
+	{
+		Book* book = random_book();
+		cout << "추천 도서입니다." << endl;
+		cout << "	" << endl;
 		system("pause");
 	}
 	// 도서 대여 함수.
@@ -419,9 +392,10 @@ int main()
 		cout << "3. 대여현황" << endl;
 		cout << "4. 유저관리" << endl;
 		cout << "5. 도서관리" << endl;
+		cout << "6. 추천도서" << endl;
 		cout << "0. 종료" << endl;
 		cout << "> ";
-		menu = InputMenu(5);
+		menu = InputMenu(6);
 
 		switch (menu)
 		{
@@ -440,12 +414,11 @@ int main()
 		case 4:
 			cout << "유저관리" << endl;
 			cout << "1. 유저등록" << endl;
-			cout << "2. 유저삭제" << endl;
-			cout << "3. 유저검색" << endl;
-			cout << "4. 유저목록" << endl;
+			cout << "2. 유저검색" << endl;
+			cout << "3. 유저목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(4);
+			menu = InputMenu(3);
 			switch (menu)
 			{
 			case 1:
@@ -453,14 +426,10 @@ int main()
 				bookshop.AddUser();
 				break;
 			case 2:
-				cout << "유저삭제" << endl;
-				bookshop.DeleteUser();
-				break;
-			case 3:
 				cout << "유저검색" << endl;
 				bookshop.FindUser();
 				break;
-			case 4:
+			case 3:
 				cout << "유저목록" << endl;
 				bookshop.UserList();
 				break;
@@ -470,9 +439,9 @@ int main()
 		case 5:
 			cout << "도서관리" << endl;
 			cout << "1. 도서등록" << endl;
-			cout << "2. 도서삭제" << endl;
-			cout << "3. 도서검색" << endl;
-			cout << "4. 도서목록" << endl;
+			cout << "2. 도서검색" << endl;
+			cout << "3. 도서목록" << endl;
+			cout << "4. 도서삭제" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
 			menu = InputMenu(4);
@@ -483,24 +452,23 @@ int main()
 				bookshop.AddBook();
 				break;
 			case 2:
-				cout << "도서삭제" << endl;
-				bookshop.DeleteBook();
-				break;
-			case 3:
 				cout << "도서검색" << endl;
 				bookshop.FindBook();
 				break;
-			case 4:
+			case 3:
 				cout << "도서목록" << endl;
 				bookshop.BookList();
 				break;
 			case 0: break;
 			}
 			break;	
+		case 6:
+			cout << "6. 추천도서" << endl;
+			bookshop.RandomBook();
+			break;
 		case 0:
 			return 0;
 		}
 	}
 	return 0;
 }
-//abcde
