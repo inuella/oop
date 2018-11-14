@@ -145,6 +145,29 @@
 		cout << "유저가 추가되었습니다." << endl;
 		system("pause");
 	}
+	// 유저 삭제 함수.
+	void BookShop::DeleteUser() {
+		char str[100];
+		User user;
+		bool check = false;
+		cin.sync();
+		cin.ignore();
+		cout << "이름 : "; cin.getline(str, 100);
+		string name_ = str;
+		cout << "생년월일 : "; cin.getline(str, 100);
+		string birth_ = str;
+		for (size_t i = 0; i < m_users.size(); i++) {
+			if ((m_users[i].getName() == name_)&&(m_users[i].getBirth() == name_)) {
+				cout << "유저가 삭제되었습니다." << endl;
+				m_users.erase(m_users.begin() + i);
+				check = true;
+			}
+		}
+		if (check == false) {
+			cout << "존재하지 않은 유저입니다.";
+		}
+		system("pause");
+	}
 	// 도서 추가 함수.
 	void BookShop::AddBook()
 	{
@@ -158,6 +181,28 @@
 		cout << "수량 : "; cin >> temp; book.setCount(temp);
 		m_books.push_back(book);
 		cout << "도서가 추가되었습니다." << endl;
+		system("pause");
+	}
+	// 도서 삭제 함수.
+	void BookShop::DeleteBook() {
+		char str[100];
+		Book book;
+		bool check = false;
+		size_t i;
+		cin.sync();
+		cin.ignore();
+		cout << "제목 : "; cin.getline(str, 100);
+		string title_ = str;
+		for (i = 0; i < m_books.size(); i++) {
+			if (m_books[i].getTitle() == title_) {
+				cout << "도서가 삭제되었습니다." << endl;
+				m_books.erase(m_books.begin() + i);
+				check = true;
+			}
+		}
+		if (check == false) {
+			cout << "존재하지 않은 도서입니다.";
+		}
 		system("pause");
 	}
 	// 유저 검색 함수.

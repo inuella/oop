@@ -25,8 +25,12 @@ public:
 
 	// 유저 추가 함수.
 	void AddUser();
+	// 유저 삭제 함수.
+	void DeleteUser();
 	// 도서 추가 함수.
 	void AddBook();
+	// 도서 삭제 함수.
+	void DeleteBook();
 
 	// 유저 검색 함수.
 	void FindUser();

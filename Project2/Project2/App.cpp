@@ -72,11 +72,12 @@ int main()
 		case 4:
 			cout << "유저관리" << endl;
 			cout << "1. 유저등록" << endl;
-			cout << "2. 유저검색" << endl;
-			cout << "3. 유저목록" << endl;
+			cout << "2. 유저삭제" << endl;
+			cout << "3. 유저검색" << endl;
+			cout << "4. 유저목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(3);
+			menu = InputMenu(4);
 			switch (menu)
 			{
 			case 1:
@@ -84,10 +85,14 @@ int main()
 				bookshop.AddUser();
 				break;
 			case 2:
+				cout << "유저삭제" << endl;
+				bookshop.DeleteUser();
+				break;
+			case 3:
 				cout << "유저검색" << endl;
 				bookshop.FindUser();
 				break;
-			case 3:
+			case 4:
 				cout << "유저목록" << endl;
 				bookshop.UserList();
 				break;
@@ -97,11 +102,12 @@ int main()
 		case 5:
 			cout << "도서관리" << endl;
 			cout << "1. 도서등록" << endl;
-			cout << "2. 도서검색" << endl;
-			cout << "3. 도서목록" << endl;
+			cout << "2. 도서삭제" << endl;
+			cout << "3. 도서검색" << endl;
+			cout << "4. 도서목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(3);
+			menu = InputMenu(4);
 			switch (menu)
 			{
 			case 1:
@@ -109,10 +115,14 @@ int main()
 				bookshop.AddBook();
 				break;
 			case 2:
+				cout << "도서삭제" << endl;
+				bookshop.DeleteBook();
+				break;
+			case 3:
 				cout << "도서검색" << endl;
 				bookshop.FindBook();
 				break;
-			case 3:
+			case 4:
 				cout << "도서목록" << endl;
 				bookshop.BookList();
 				break;
