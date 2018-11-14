@@ -51,9 +51,10 @@ int main()
 		cout << "3. 대여현황" << endl;
 		cout << "4. 유저관리" << endl;
 		cout << "5. 도서관리" << endl;
+		cout << "6. 추천도서" << endl;
 		cout << "0. 종료" << endl;
 		cout << "> ";
-		menu = InputMenu(5);
+		menu = InputMenu(6);
 
 		switch (menu)
 		{
@@ -118,6 +119,10 @@ int main()
 				break;
 			case 0: break;
 			}
+			break;
+		case 6:
+			cout << "  추천 도서입니다." << endl;
+			bookshop.RandomBook();
 			break;
 		case 0:
 			return 0;
