@@ -94,6 +94,16 @@ private:
 		}
 		return NULL;
 	}
+	// 도서 추천 내부 함수.
+	Book* random_book()
+	{
+		for (int i = 0; i < m_books.size(); i++)
+		{
+			
+			cout << rand() << endl;
+			return 0;
+		}
+	}
 
 public:
 	// 생성자 - 파일 읽기.
@@ -253,6 +263,14 @@ public:
 		else cout << "검색하려는 책이 존재하지 않습니다." << endl;
 		system("pause");
 	}
+	//도서 추천 함수.
+	void RandomBook()
+	{
+		Book* book = random_book();
+		cout << "추천 도서입니다." << endl;
+		cout << "	" << endl;
+		system("pause");
+	}
 	// 도서 대여 함수.
 	void RentBook()
 	{
@@ -374,9 +392,10 @@ int main()
 		cout << "3. 대여현황" << endl;
 		cout << "4. 유저관리" << endl;
 		cout << "5. 도서관리" << endl;
+		cout << "6. 추천도서" << endl;
 		cout << "0. 종료" << endl;
 		cout << "> ";
-		menu = InputMenu(5);
+		menu = InputMenu(6);
 
 		switch (menu)
 		{
@@ -422,9 +441,10 @@ int main()
 			cout << "1. 도서등록" << endl;
 			cout << "2. 도서검색" << endl;
 			cout << "3. 도서목록" << endl;
+			cout << "4. 도서삭제" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(3);
+			menu = InputMenu(4);
 			switch (menu)
 			{
 			case 1:
@@ -442,10 +462,13 @@ int main()
 			case 0: break;
 			}
 			break;	
+		case 6:
+			cout << "6. 추천도서" << endl;
+			bookshop.RandomBook();
+			break;
 		case 0:
 			return 0;
 		}
 	}
 	return 0;
 }
-//abcde
