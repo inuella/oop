@@ -214,6 +214,7 @@ public:
 		cout << "유저가 추가되었습니다." << endl;
 		system("pause");
 	}
+	void DeleteUser();
 	// 도서 추가 함수.
 	void AddBook()
 	{
