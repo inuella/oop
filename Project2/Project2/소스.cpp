@@ -252,6 +252,30 @@ public:
 		cout << "도서가 추가되었습니다." << endl;
 		system("pause");
 	}
+	//도서 삭제 함수
+	void DeleteBook()
+	{
+		bool check = false;
+		char str[100];
+		Book book;
+		cin.sync();
+		cin.ignore();
+		cout << "제목 : "; cin.getline(str, 100);
+		string title_ = str;
+		cout << "출판사 : "; cin.getline(str, 100);
+		string publisher_ = str;
+		for (size_t i = 0; i < m_books.size(); i++) {
+			if ((m_books[i].title == title_) && (m_books[i].publisher == publisher_)) {
+				cout << "책이 삭제 되었습니다." << endl;
+				m_books.erase(m_books.begin() + i);
+				check = true;
+			}
+		}
+		if (check == false) {
+			cout << "존재하지 않는 책입니다." << endl;
+		}
+		system("pause");
+	}
 	// 유저 검색 함수.
 	void FindUser()
 	{
