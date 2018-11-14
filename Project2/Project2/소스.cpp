@@ -262,10 +262,8 @@ public:
 		cin.ignore();
 		cout << "제목 : "; cin.getline(str, 100);
 		string title_ = str;
-		cout << "출판사 : "; cin.getline(str, 100);
-		string publisher_ = str;
 		for (size_t i = 0; i < m_books.size(); i++) {
-			if ((m_books[i].title == title_) && (m_books[i].publisher == publisher_)) {
+			if (m_books[i].title == title_) {
 				cout << "책이 삭제 되었습니다." << endl;
 				m_books.erase(m_books.begin() + i);
 				check = true;
@@ -472,11 +470,12 @@ int main()
 		case 5:
 			cout << "도서관리" << endl;
 			cout << "1. 도서등록" << endl;
-			cout << "2. 도서검색" << endl;
-			cout << "3. 도서목록" << endl;
+			cout << "2. 도서삭제" << endl;
+			cout << "3. 도서검색" << endl;
+			cout << "4. 도서목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(3);
+			menu = InputMenu(4);
 			switch (menu)
 			{
 			case 1:
@@ -484,10 +483,14 @@ int main()
 				bookshop.AddBook();
 				break;
 			case 2:
+				cout << "도서삭제" << endl;
+				bookshop.DeleteBook();
+				break;
+			case 3:
 				cout << "도서검색" << endl;
 				bookshop.FindBook();
 				break;
-			case 3:
+			case 4:
 				cout << "도서목록" << endl;
 				bookshop.BookList();
 				break;
