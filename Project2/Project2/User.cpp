@@ -12,6 +12,9 @@ string User::getPhone() {
 string User::getAddress() {
 	return address;
 }
+string User::getDueDate() {
+	return dueDate;
+}
 
 void User::setName(string newName) {
 	name = newName;
@@ -24,4 +27,7 @@ void User::setPhone(string newPhone) {
 }
 void User::setAddress(string newAddress) {
 	address = newAddress;
+}
+void User::setDueDate(string newDueDate) {
+	dueDate = newDueDate;
 }

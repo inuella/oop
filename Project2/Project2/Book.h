@@ -35,8 +35,8 @@ public:
 	// 도서 정보 출력.
 	friend ostream& operator<<(ostream& o, Book& book)
 	{
-		o << book.title << "\t" << book.publisher << "\t";
-		o << book.count - book.users.size() << "/" << book.count << "\t";
+		o << book.getTitle() << "\t" << book.getPublisher() << "\t";
+		o << book.getCount() - book.getUsers().size() << "/" << book.getCount() << "\t";
 		return o;
 	}
 };

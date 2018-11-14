@@ -1,5 +1,13 @@
+
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 // 도서 대여점 클래스.
 #include "BookShop.h"
+#include <time.h>
+#include "Book.h"
+#include "User.h"
 
 
 	vector<Book> m_books;      // 도서 목록.
@@ -26,6 +34,18 @@
 		return NULL;
 	}
 
+	string BookShop::timeCheck() {
+		time_t now;
+		time(&now);
+		string s; // 요일 월 일 현재시간 연도
+		s = asctime(localtime(&now));
+		string str1 = s.substr(4, 3); // 월
+		string str2 = s.substr(8, 2); // 일
+		string str3 = s.substr(11, 2); // 시
+		string str4 = s.substr(20, 4); // 연도
+		return str4 + "년 " + str1 + "월 " + str2 + "일 " + str3 + "시 ";
+	}
+
 
 	// 생성자 - 파일 읽기.
 	BookShop::BookShop()
@@ -40,10 +60,11 @@
 			for (int i = 0; i < count; i++)
 			{
 				User user;
-				userFile.getline(str, 100); user.name = str;
-				userFile.getline(str, 100); user.birth = str;
-				userFile.getline(str, 100); user.address = str;
-				userFile.getline(str, 100); user.phone = str;
+				userFile.getline(str, 100); user.setName(str);
+				userFile.getline(str, 100); user.setBirth(str);
+				userFile.getline(str, 100); user.setAddress(str);
+				userFile.getline(str, 100); user.setPhone(str);
+				userFile.getline(str, 100); user.setDueDate(str);
 				m_users.push_back(user);
 			}
 			userFile.close();
@@ -56,9 +77,9 @@
 			for (int i = 0; i < count; i++)
 			{
 				Book book;
-				bookFile.getline(str, 100); book.title = str;
-				bookFile.getline(str, 100); book.publisher = str;
-				bookFile.getline(str, 100); book.count = atoi(str);
+				bookFile.getline(str, 100); book.setTitle(str);
+				bookFile.getline(str, 100); book.setPublisher(str);
+				bookFile.getline(str, 100); book.setCount(atoi(str));
 				m_books.push_back(book);
 			}
 			bookFile.close();
@@ -67,15 +88,19 @@
 		ifstream rentFile("rent.txt");
 		if (!rentFile.fail())
 		{
-			char title[100], name[100];
+			char title[100], name[100], dueDate[100];
 			rentFile.getline(str, 100); count = atoi(str);
 			for (int i = 0; i < count; i++)
 			{
 				rentFile.getline(title, 100);
 				rentFile.getline(name, 100);
+				rentFile.getline(dueDate, 100);
 				User* user = find_user(name);
 				Book* book = find_book(title);
-				if (user && book) book->Rent(user);
+				if (user && book) {
+					user->setDueDate(dueDate);
+					book->Rent(user);
+				}
 			}
 			rentFile.close();
 		}
@@ -90,10 +115,11 @@
 			userFile << m_users.size() << endl;
 			for (size_t i = 0; i < m_users.size(); i++)
 			{
-				userFile << m_users[i].name << endl;
-				userFile << m_users[i].birth << endl;
-				userFile << m_users[i].address << endl;
-				userFile << m_users[i].phone << endl;
+				userFile << m_users[i].getName() << endl;
+				userFile << m_users[i].getBirth() << endl;
+				userFile << m_users[i].getAddress() << endl;
+				userFile << m_users[i].getPhone() << endl;
+				userFile << m_users[i].getDueDate() << endl;
 			}
 			userFile.close();
 		}
@@ -104,9 +130,9 @@
 			bookFile << m_books.size() << endl;
 			for (size_t i = 0; i < m_books.size(); i++)
 			{
-				bookFile << m_books[i].title << endl;
-				bookFile << m_books[i].publisher << endl;
-				bookFile << m_books[i].count << endl;
+				bookFile << m_books[i].getTitle() << endl;
+				bookFile << m_books[i].getPublisher() << endl;
+				bookFile << m_books[i].getCount() << endl;
 			}
 			bookFile.close();
 		}
@@ -123,8 +149,9 @@
 			{
 				for (size_t k = 0; k < m_books[i].users.size(); k++)
 				{
-					rentFile << m_books[i].title << endl;
-					rentFile << m_books[i].users[k]->name << endl;
+					rentFile << m_books[i].getTitle() << endl;
+					rentFile << m_books[i].users[k]->getName() << endl;
+					rentFile << m_books[i].users[k]->getDueDate() << endl;
 				}
 			}
 			rentFile.close();
@@ -141,6 +168,7 @@
 		cout << "생년월일 : "; cin.getline(str, 100); user.setBirth(str);
 		cout << "전화번호 : "; cin.getline(str, 100); user.setPhone(str);
 		cout << "주소 : "; cin.getline(str, 100); user.setAddress(str);
+		user.setDueDate("정보 없음");
 		m_users.push_back(user);
 		cout << "유저가 추가되었습니다." << endl;
 		system("pause");
@@ -198,7 +226,15 @@
 			cout << "도서제목 : "; cin.getline(title, 100);
 			Book* book = find_book(title);
 			if (book) {
-				if (book->Rent(user)) cout << "도서 대여가 처리되었습니다." << endl;
+				if (book->getUsers().size() < book->getCount()) {
+					
+					string time = timeCheck();
+					cout << "도서 대여가 처리되었습니다." << endl;
+					cout << "대여날짜: " << time << endl;
+					user->setDueDate(time);
+					book->Rent(user);
+
+				}
 				else cout << "입력하신 도서의 제고가 없습니다." << endl;
 			}
 			else cout << "입력하신 책이 존재하지 않습니다." << endl;
@@ -232,13 +268,14 @@
 	void BookShop::RentList()
 	{
 		cout << "-------------------------------------------------------------" << endl;
-		cout << "도서제목\t대여자\t전화번호" << endl;
+		cout << "도서제목\t대여자\t전화번호\t대여날짜" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		for (size_t i = 0; i < m_books.size(); i++) {
-			for (size_t k = 0; k < m_books[i].users.size(); k++) {
+			for (size_t k = 0; k < m_books[i].getUsers().size(); k++) {
 				cout << m_books[i].getTitle() << "\t";
 				cout << m_books[i].users[k]->getName() << "\t";
-				cout << m_books[i].users[k]->getPhone() << endl;
+				cout << m_books[i].users[k]->getPhone() << "\t";
+				cout << m_books[i].users[k]->getDueDate() << endl;
 			}
 		}
 		cout << "-------------------------------------------------------------" << endl;
@@ -248,7 +285,7 @@
 	void BookShop::UserList()
 	{
 		cout << "-------------------------------------------------------------" << endl;
-		cout << "이름\t생년월일\t전화번호\t주소" << endl;
+		cout << "이름\t생년월일\t전화번호\t주소\t대여날짜" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		if (m_users.size() == 0) cout << "등록된 유저가 업습니다." << endl;
 		for (size_t i = 0; i < m_users.size(); i++) cout << m_users[i] << endl;
@@ -266,3 +303,4 @@
 		cout << "-------------------------------------------------------------" << endl;
 		system("pause");
 	}
+

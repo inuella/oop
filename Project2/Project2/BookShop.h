@@ -17,6 +17,8 @@ private:
 	// 도서 찾기 내부 함수.
 	Book* find_book(string title);
 
+	string timeCheck();
+
 
 public:
 	// 생성자 - 파일 읽기.

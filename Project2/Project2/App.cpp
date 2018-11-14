@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -6,9 +8,9 @@
 #include "Book.h"
 #include "BookShop.h"
 
+
+
 using namespace std;
-
-
 
 
 // 메뉴 타이틀 및 카테고리 출력 함수.
@@ -41,6 +43,7 @@ int main()
 	BookShop bookshop;
 
 	MenuTitle("");
+
 
 
 	while (1)

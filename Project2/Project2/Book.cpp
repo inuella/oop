@@ -32,8 +32,8 @@ void Book::setUsers(vector<User*> newUsers) {
 
 bool Book::Rent(User* user)
 {
-	if (getUsers().size() < count) {
-		getUsers().push_back(user);
+	if (getUsers().size() < getCount()) {
+		users.push_back(user);
 		return true;
 	}
 	return false;
@@ -42,9 +42,9 @@ bool Book::Rent(User* user)
 bool Book::Return(User* user)
 {
 	vector<User*>::iterator it;
-	for (it = getUsers().begin(); it != getUsers().end(); it++) {
+	for (it = users.begin(); it != users.end(); it++) {
 		if (*it == user) {
-			getUsers().erase(it);
+			users.erase(it);
 			return true;
 		}
 	}
