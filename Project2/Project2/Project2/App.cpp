@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -6,9 +8,9 @@
 #include "Book.h"
 #include "BookShop.h"
 
+
+
 using namespace std;
-
-
 
 
 // 메뉴 타이틀 및 카테고리 출력 함수.
@@ -43,6 +45,7 @@ int main()
 	MenuTitle("");
 
 
+
 	while (1)
 	{
 		cout << "메뉴" << endl;
@@ -51,10 +54,9 @@ int main()
 		cout << "3. 대여현황" << endl;
 		cout << "4. 유저관리" << endl;
 		cout << "5. 도서관리" << endl;
-		cout << "6. 추천도서" << endl;
 		cout << "0. 종료" << endl;
 		cout << "> ";
-		menu = InputMenu(6);
+		menu = InputMenu(5);
 
 		switch (menu)
 		{
@@ -73,12 +75,11 @@ int main()
 		case 4:
 			cout << "유저관리" << endl;
 			cout << "1. 유저등록" << endl;
-			cout << "2. 유저삭제" << endl;
-			cout << "3. 유저검색" << endl;
-			cout << "4. 유저목록" << endl;
+			cout << "2. 유저검색" << endl;
+			cout << "3. 유저목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(4);
+			menu = InputMenu(3);
 			switch (menu)
 			{
 			case 1:
@@ -86,14 +87,10 @@ int main()
 				bookshop.AddUser();
 				break;
 			case 2:
-				cout << "유저삭제" << endl;
-				bookshop.DeleteUser();
-				break;
-			case 3:
 				cout << "유저검색" << endl;
 				bookshop.FindUser();
 				break;
-			case 4:
+			case 3:
 				cout << "유저목록" << endl;
 				bookshop.UserList();
 				break;
@@ -103,12 +100,11 @@ int main()
 		case 5:
 			cout << "도서관리" << endl;
 			cout << "1. 도서등록" << endl;
-			cout << "2. 도서삭제" << endl;
-			cout << "3. 도서검색" << endl;
-			cout << "4. 도서목록" << endl;
+			cout << "2. 도서검색" << endl;
+			cout << "3. 도서목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(4);
+			menu = InputMenu(3);
 			switch (menu)
 			{
 			case 1:
@@ -116,23 +112,15 @@ int main()
 				bookshop.AddBook();
 				break;
 			case 2:
-				cout << "도서삭제" << endl;
-				bookshop.DeleteBook();
-				break;
-			case 3:
 				cout << "도서검색" << endl;
 				bookshop.FindBook();
 				break;
-			case 4:
+			case 3:
 				cout << "도서목록" << endl;
 				bookshop.BookList();
 				break;
 			case 0: break;
 			}
-			break;
-		case 6:
-			cout << "  추천 도서입니다." << endl;
-			bookshop.RandomBook();
 			break;
 		case 0:
 			return 0;
