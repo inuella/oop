@@ -214,7 +214,30 @@ public:
 		cout << "유저가 추가되었습니다." << endl;
 		system("pause");
 	}
-	void DeleteUser();
+	// 유저 삭제 함수
+	void DeleteUser()
+	{
+		bool check = false;
+		char str[100];
+		User user;
+		cin.sync();
+		cin.ignore();
+		cout << "이름 : "; cin.getline(str, 100);
+		string name_ = str;
+		cout << "생년월일 : "; cin.getline(str, 100);
+		string birth_ = str;
+		for (size_t i = 0; i < m_users.size(); i++) {
+			if ((m_users[i].name == name_) && (m_users[i].birth == birth_)) {
+				cout << "유저가 삭제 되었습니다." << endl;
+				m_users.erase(m_users.begin() + i);
+				check = true;
+			}
+		}
+		if (check == false) {
+			cout << "존재하지 않는 유저입니다." << endl;
+		}
+		system("pause");
+	}
 	// 도서 추가 함수.
 	void AddBook()
 	{
@@ -395,11 +418,12 @@ int main()
 		case 4:
 			cout << "유저관리" << endl;
 			cout << "1. 유저등록" << endl;
-			cout << "2. 유저검색" << endl;
-			cout << "3. 유저목록" << endl;
+			cout << "2. 유저삭제" << endl;
+			cout << "3. 유저검색" << endl;
+			cout << "4. 유저목록" << endl;
 			cout << "0. 돌아가기" << endl;
 			cout << "> ";
-			menu = InputMenu(3);
+			menu = InputMenu(4);
 			switch (menu)
 			{
 			case 1:
@@ -407,10 +431,14 @@ int main()
 				bookshop.AddUser();
 				break;
 			case 2:
+				cout << "유저삭제" << endl;
+				bookshop.DeleteUser();
+				break;
+			case 3:
 				cout << "유저검색" << endl;
 				bookshop.FindUser();
 				break;
-			case 3:
+			case 4:
 				cout << "유저목록" << endl;
 				bookshop.UserList();
 				break;
