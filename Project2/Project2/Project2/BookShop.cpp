@@ -6,12 +6,14 @@
 // 도서 대여점 클래스.
 #include "BookShop.h"
 #include <time.h>
+#include <algorithm>
 #include "Book.h"
 #include "User.h"
 
 
 	vector<Book> m_books;      // 도서 목록.
 	vector<User> m_users;      // 유저 목록.
+	vector<Book>::iterator iter;
 
 	// 유저 찾기 내부 함수.
 	User* BookShop::find_user(string name)
@@ -31,6 +33,16 @@
 			if (m_books[i].getTitle() == title)
 				return &m_books[i];
 		}
+		return NULL;
+	}
+	//도서 추천 내부 함수.
+	Book* BookShop::random_book()
+	{
+		for (int i = 0; i < m_books.size(); i++) m_books[i];
+		srand(time(NULL));
+		random_shuffle(m_books.begin(), m_books.end()); //도서목록을 랜덤하게 섞어줌.
+
+		cout << m_books.front() << endl << endl; //랜덤하게 배열한 것 중 택 1
 		return NULL;
 	}
 
@@ -173,6 +185,29 @@
 		cout << "유저가 추가되었습니다." << endl;
 		system("pause");
 	}
+	// 유저 삭제 함수.
+	void BookShop::DeleteUser() {
+		char str[100];
+		User user;
+		bool check = false;
+		cin.sync();
+		cin.ignore();
+		cout << "이름 : "; cin.getline(str, 100);
+		string name_ = str;
+		cout << "생년월일 : "; cin.getline(str, 100);
+		string birth_ = str;
+		for (size_t i = 0; i < m_users.size(); i++) {
+			if ((m_users[i].getName() == name_) && (m_users[i].getBirth() == birth_)) {
+				cout << "유저가 삭제되었습니다." << endl;
+				m_users.erase(m_users.begin() + i);
+				check = true;
+			}
+		}
+		if (check == false) {
+			cout << "존재하지 않는 유저입니다.";
+		}
+		system("pause");
+	}
 	// 도서 추가 함수.
 	void BookShop::AddBook()
 	{
@@ -186,6 +221,28 @@
 		cout << "수량 : "; cin >> temp; book.setCount(temp);
 		m_books.push_back(book);
 		cout << "도서가 추가되었습니다." << endl;
+		system("pause");
+	}
+	// 도서 삭제 함수.
+	void BookShop::DeleteBook() {
+		char str[100];
+		Book book;
+		bool check = false;
+		size_t i;
+		cin.sync();
+		cin.ignore();
+		cout << "제목 : "; cin.getline(str, 100);
+		string title_ = str;
+		for (i = 0; i < m_books.size(); i++) {
+			if (m_books[i].getTitle() == title_) {
+				cout << "도서가 삭제되었습니다." << endl;
+				m_books.erase(m_books.begin() + i);
+				check = true;
+			}
+		}
+		if (check == false) {
+			cout << "존재하지 않는 도서입니다.";
+		}
 		system("pause");
 	}
 	// 유저 검색 함수.
@@ -212,6 +269,12 @@
 		else cout << "검색하려는 책이 존재하지 않습니다." << endl;
 		system("pause");
 	}
+	// 도서 추천 함수.
+	void BookShop::RandomBook()
+	{
+		cout << random_book() << endl;
+		system("pause");
+	}
 	// 도서 대여 함수.
 	void BookShop::RentBook()
 	{
@@ -235,7 +298,7 @@
 					book->Rent(user);
 
 				}
-				else cout << "입력하신 도서의 제고가 없습니다." << endl;
+				else cout << "입력하신 도서의 재고가 없습니다." << endl;
 			}
 			else cout << "입력하신 책이 존재하지 않습니다." << endl;
 		}
@@ -257,7 +320,7 @@
 			Book* book = find_book(title);
 			if (book) {
 				if (book->Return(user)) cout << "도서 반납이 처리되었습니다." << endl;
-				else cout << "입력하신 도서의 제고가 없습니다." << endl;
+				else cout << "입력하신 도서의 재고가 없습니다." << endl;
 			}
 			else cout << "입력하신 책이 존재하지 않습니다." << endl;
 		}
@@ -287,7 +350,7 @@
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "이름\t생년월일\t전화번호\t주소\t대여날짜" << endl;
 		cout << "-------------------------------------------------------------" << endl;
-		if (m_users.size() == 0) cout << "등록된 유저가 업습니다." << endl;
+		if (m_users.size() == 0) cout << "등록된 유저가 없습니다." << endl;
 		for (size_t i = 0; i < m_users.size(); i++) cout << m_users[i] << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		system("pause");
@@ -296,9 +359,9 @@
 	void BookShop::BookList()
 	{
 		cout << "-------------------------------------------------------------" << endl;
-		cout << "제목\t출판사\t제고/전체수량" << endl;
+		cout << "제목\t출판사\t재고/전체수량" << endl;
 		cout << "-------------------------------------------------------------" << endl;
-		if (m_books.size() == 0) cout << "등록된 도서가 업습니다." << endl;
+		if (m_books.size() == 0) cout << "등록된 도서가 없습니다." << endl;
 		for (size_t i = 0; i < m_books.size(); i++) cout << m_books[i] << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		system("pause");

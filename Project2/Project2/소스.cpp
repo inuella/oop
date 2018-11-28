@@ -268,7 +268,7 @@ public:
 	{
 		Book* book = random_book();
 		cout << "추천 도서입니다." << endl;
-		cout << "	" << endl;
+
 		system("pause");
 	}
 	// 도서 대여 함수.
