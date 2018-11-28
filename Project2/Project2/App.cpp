@@ -130,7 +130,7 @@ int main()
 			}
 			break;
 		case 6:
-			cout << "  추천 도서입니다." << endl;
+			cout << "  추천 도서입니다." << endl << endl;
 			bookshop.RandomBook();
 			break;
 		case 0:

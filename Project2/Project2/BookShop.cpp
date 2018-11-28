@@ -34,12 +34,9 @@
 		int i = 0;
 		for (i = 0; i < m_books.size(); i++) m_books[i];
 		srand(time(NULL));
-		random_shuffle(m_books.begin(), m_books.end());
-
-		for (iter = m_books.begin(); iter != m_books.end(); iter++)
-		{
-		cout << *iter << endl;
-		}
+		random_shuffle(m_books.begin(), m_books.end()); 
+		
+		cout << m_books.front() << endl;
 		cout << endl;
 		return NULL;
 	}
