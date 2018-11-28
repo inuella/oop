@@ -38,7 +38,7 @@
 
 		for (iter = m_books.begin(); iter != m_books.end(); iter++)
 		{
-			cout << *iter << endl;
+		cout << *iter[i] << endl;
 		}
 		cout << endl;
 		return NULL;
@@ -182,7 +182,7 @@
 			}
 		}
 		if (check == false) {
-			cout << "존재하지 않은 유저입니다.";
+			cout << "존재하지 않는 유저입니다.";
 		}
 		system("pause");
 	}
@@ -219,7 +219,7 @@
 			}
 		}
 		if (check == false) {
-			cout << "존재하지 않은 도서입니다.";
+			cout << "존재하지 않는 도서입니다.";
 		}
 		system("pause");
 	}

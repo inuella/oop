@@ -45,7 +45,6 @@ int main()
 
 	while (1)
 	{
-		cout << "메뉴" << endl;
 		cout << "1. 도서대여" << endl;
 		cout << "2. 도서반납" << endl;
 		cout << "3. 대여현황" << endl;
