@@ -38,7 +38,7 @@
 
 		for (iter = m_books.begin(); iter != m_books.end(); iter++)
 		{
-		cout << *iter[i] << endl;
+		cout << *iter << endl;
 		}
 		cout << endl;
 		return NULL;
