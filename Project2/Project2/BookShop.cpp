@@ -382,7 +382,7 @@
 	}
 
 	void BookShop::recoverAvailability() {
-		
+
 		cin.sync();
 		cin.ignore();
 		char str[100];
