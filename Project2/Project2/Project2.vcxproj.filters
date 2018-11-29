@@ -27,6 +27,15 @@
     <ClCompile Include="BookShop.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="DVD.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DVDShop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -36,6 +45,21 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BookShop.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DVD.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DVDShop.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DVDUser.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BookUser.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
