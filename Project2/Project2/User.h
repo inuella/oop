@@ -40,6 +40,7 @@ public:
 	void setDueDate(string newDueDate);
 	void setAvailability(string newAvailability);
 
+
 };
 
 #endif;

@@ -116,22 +116,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="AppController.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="BookShop.cpp" />
     <ClCompile Include="DVD.cpp" />
     <ClCompile Include="DVDShop.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Librarian.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppController.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="BookShop.h" />
-    <ClInclude Include="BookUser.h" />
     <ClInclude Include="DVD.h" />
     <ClInclude Include="DVDShop.h" />
-    <ClInclude Include="DVDUser.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Librarian.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,5 +37,4 @@ public:
 
 	virtual void List() = 0;
 
-	virtual void recoverAvailability() = 0;
 };

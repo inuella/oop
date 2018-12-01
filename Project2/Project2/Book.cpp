@@ -4,9 +4,7 @@
 Book::Book() {
 	setCount(0);
 }
-string Book::getTitle() {
-	return title;
-}
+
 string Book::getPublisher() {
 	return publisher;
 }
@@ -14,10 +12,6 @@ size_t Book::getCount() {
 	return count;
 }
 
-
-void Book::setTitle(string newTitle) {
-	title = newTitle;
-}
 void Book::setPublisher(string newPublisher) {
 	publisher = newPublisher;
 }
@@ -25,22 +19,21 @@ void Book::setCount(size_t newCount) {
 	count = newCount;
 }
 
-
-bool Book::Rent(BookUser* user)
+bool Book::Rent(User* user)
 {
-	if (users.size() < getCount()) {
-		users.push_back(user);
+	if (getUsers().size() < getCount()) {
+		getUsers().push_back(user);
 		return true;
 	}
 	return false;
 }
-// 도서 반납 처리.
-bool Book::Return(BookUser* user)
+
+bool Book::Return(User* user)
 {
-	vector<BookUser*>::iterator it;
-	for (it = users.begin(); it != users.end(); it++) {
+	vector<User*>::iterator it;
+	for (it = getUsers().begin(); it != getUsers().end(); it++) {
 		if (*it == user) {
-			users.erase(it);
+			getUsers().erase(it);
 			return true;
 		}
 	}
