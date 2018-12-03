@@ -11,8 +11,11 @@ private:
 	string publisher;    // √‚∆«ªÁ
 	size_t count;
 
+
 public:
 	Book();
+
+	vector<User*> users;
 
 	string getPublisher();
 	size_t getCount();
@@ -23,11 +26,10 @@ public:
 	friend ostream& operator<<(ostream& o, Book& book)
 	{
 		o << book.getName() << "\t" << book.getPublisher() << "\t";
-		o << book.getCount() - book.getUsers().size() << "/" << book.getCount() << "\t";
+		o << book.getCount() - book.users.size() << "/" << book.getCount() << "\t";
 		return o;
 	}
+	bool Rent(User* user);
 
-	 bool Rent(User* user);
-
-	 bool Return(User* user);
+	bool Return(User* user);
 };

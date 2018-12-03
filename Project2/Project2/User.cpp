@@ -20,6 +20,7 @@ string User::getAvailability() {
 }
 
 
+
 void User::setName(string newName) {
 	name = newName;
 }

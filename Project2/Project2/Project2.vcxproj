@@ -123,9 +123,10 @@
     <ClCompile Include="DVDShop.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Librarian.cpp" />
+    <ClCompile Include="Magazine.cpp" />
+    <ClCompile Include="MagazineShop.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="User.cpp" />
-    <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppController.h" />
@@ -135,9 +136,10 @@
     <ClInclude Include="DVDShop.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Librarian.h" />
+    <ClInclude Include="Magazine.h" />
+    <ClInclude Include="MagazineShop.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="User.h" />
-    <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

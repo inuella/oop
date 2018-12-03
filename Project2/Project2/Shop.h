@@ -4,17 +4,20 @@
 
 #include <iostream>
 #include <vector>
+#include "User.h"
 
 using namespace std;
 
 class Shop
 {
 
+private:
+
 public:
-	// 생성자 - 파일 읽기.
 
 	Shop();
 	~Shop();
+
 
 	string timeCheck();
 
@@ -23,18 +26,25 @@ public:
 
 	string monthChange(string mon);
 
-	// 도서 검색 함수.
+
 	virtual void Find() = 0;
 
-	// 도서 대여 함수.
 	virtual void Rent() = 0;
 
-	// 도서 반납 함수.
 	virtual void Return() = 0;
 
-	// 도서 대여 목록 출력 함수.
 	virtual void RentList() = 0;
 
 	virtual void List() = 0;
+
+	virtual void getList() = 0;
+
+	virtual void recoverAvailability() = 0;
+
+	virtual void FindUser() = 0;
+
+	virtual void UserList() = 0;
+
+	virtual void AddUser() = 0;
 
 };

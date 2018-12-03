@@ -1,17 +1,14 @@
 
 #include "Librarian.h"
 
-BookShop bookshop;
-DVDShop dvdshop;
-
 
 Librarian::Librarian() {
-	userData.readUserData();
 }
 
 Librarian::~Librarian() {
-	userData.writeUserData();
 }
+
+
 
 
 void Librarian::Add(int num) {
@@ -20,6 +17,9 @@ void Librarian::Add(int num) {
 	}
 	else if (num == 2) {
 		dvdshop.Add();
+	}
+	else if (num == 3) {
+		magazineshop.Add();
 	}
 }
 
@@ -30,7 +30,10 @@ void Librarian::Find(int num) {
 	else if (num == 2) {
 		dvdshop.Find();
 	}
-}
+	else if (num == 3) {
+		magazineshop.Find();
+	}
+ }
 
 void Librarian::Rent(int num) {
 	if (num == 1) {
@@ -38,6 +41,9 @@ void Librarian::Rent(int num) {
 	}
 	else if (num == 2) {
 		dvdshop.Rent();
+	}
+	else if (num == 3) {
+		magazineshop.Rent();
 	}
 }
 
@@ -48,35 +54,73 @@ void Librarian::Return(int num) {
 	else if (num == 2) {
 		dvdshop.Return();
 	}
+	else if (num == 3) {
+		magazineshop.Return();
+	}
 }
 
 void Librarian::RentList() {
 		bookshop.RentList();
 		dvdshop.RentList();
+		magazineshop.RentList();
 }
 
 void Librarian::List() {
 		bookshop.List();
 		dvdshop.List();
+		magazineshop.List();
 }
 
-void Librarian ::FindUser()
+void Librarian ::FindUser(int num)
 {
-	userData.FindUser();
+	if (num == 1) {
+		bookshop.FindUser();
+	}
+	else if (num == 2) {
+		dvdshop.FindUser();
+	}
+	else if (num == 3) {
+		magazineshop.FindUser();
+	}
 }
 
-void Librarian::UserList() {
+void Librarian::UserList(int num) {
 	
-	userData.UserList();
+	if (num == 1) {
+		bookshop.UserList();
+	}
+	else if (num == 2) {
+		dvdshop.UserList();
+	}
+	else if (num == 3) {
+		magazineshop.UserList();
+	}
 	
 }
 
-void Librarian::AddUser()
+void Librarian::AddUser(int num)
 {
-	userData.AddUser();
+	if (num == 1) {
+		bookshop.AddUser();
+	}
+	else if (num == 2) {
+		dvdshop.AddUser();
+	}
+	else if (num == 3) {
+		magazineshop.AddUser();
+	}
+
 }
 
-void Librarian::recoverAvailability() {
+void Librarian::recoverAvailability(int num) {
 
-	userData.recoverAvailability();
+	if (num == 1) {
+		bookshop.recoverAvailability();
+	}
+	else if (num == 2) {
+		dvdshop.recoverAvailability();
+	}
+	else if (num == 3) {
+		magazineshop.recoverAvailability();
+	}
 }

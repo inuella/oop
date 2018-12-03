@@ -2,13 +2,15 @@
 
 #include "BookShop.h"
 #include "DVDShop.h"
-#include "Item.h"
-#include "UserData.h"
+#include "MagazineShop.h"
 
 class Librarian {
 	
 private:
-	UserData userData;
+
+	BookShop bookshop;
+	DVDShop dvdshop;
+	MagazineShop magazineshop;
 		
 public:
 	Librarian();
@@ -26,12 +28,12 @@ public:
 
 	void List();
 
-	void recoverAvailability();
+	void recoverAvailability(int num);
 
-	void FindUser();
+	void FindUser(int num);
 
-	void UserList();
+	void UserList(int num);
 
-	void AddUser();
+	void AddUser(int num);
 		
 };

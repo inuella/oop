@@ -7,7 +7,6 @@
 #include "Shop.h"
 #include <time.h>
 
-
 string Shop::timeCheck() {
 	time_t now;
 	time(&now);
@@ -20,6 +19,7 @@ string Shop::timeCheck() {
 	str1 = monthChange(str1);
 	return str4 + "년 " + str1 + "월 " + str2 + "일 " + str3 + "시 ";
 }
+
 
 string Shop::monthChange(string mon) {
 	if (mon == "Jan") {
@@ -68,7 +68,4 @@ Shop::Shop()
 	
 
 Shop::~Shop(){}
-
-
-
 

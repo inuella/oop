@@ -1,26 +1,29 @@
 #pragma once
-#pragma once
-// 도서 대여점 클래스.
 
 #include <fstream>
 #include "Shop.h"
-#include "DVD.h"
+#include "Magazine.h"
 
-class DVDShop : public Shop
-{
+
+class MagazineShop : public Shop {
+
 private:
-	vector<DVD> m_dvds; 
+	vector<Magazine> m_magazines;
 	vector<User> m_users;
 
-	DVD* find_dvd(string title);
+	Magazine* find_magazine(string title);
+
+#pragma once
+
 
 public:
-	DVDShop();
-	~DVDShop();
+
+	MagazineShop();
+	~MagazineShop();
+
+	 bool compareTime(User* user);
 
 	void Add();
-
- 	bool compareTime(User* user);
 
 	void Find();
 
@@ -47,5 +50,4 @@ public:
 	void UserList();
 
 	void AddUser();
-
 };

@@ -1,24 +1,22 @@
-#pragma once
-#include "DVD.h"
 
-DVD::DVD() {
-	setCount(0);
+#include "Magazine.h"
+
+string Magazine::getHo() {
+	return ho;
 }
-string DVD::getMaker() {
-	return maker;
+void Magazine::setHo(string newHo) {
+	ho = newHo;
 }
-size_t DVD::getCount() {
+
+size_t Magazine::getCount() {
 	return count;
 }
 
-void DVD::setMaker(string newMaker) {
-	maker = newMaker;
-}
-void DVD::setCount(size_t newCount) {
+void Magazine::setCount(size_t newCount) {
 	count = newCount;
 }
 
-bool DVD::Rent(User* user)
+bool Magazine::Rent(User* user)
 {
 	if (users.size() < getCount()) {
 		users.push_back(user);
@@ -27,7 +25,7 @@ bool DVD::Rent(User* user)
 	return false;
 }
 
-bool DVD::Return(User* user)
+bool Magazine::Return(User* user)
 {
 	vector<User*>::iterator it;
 	for (it = users.begin(); it != users.end(); it++) {

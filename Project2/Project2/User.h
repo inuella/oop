@@ -3,7 +3,6 @@
 #ifndef USER_H
 #define USER_H
 
-#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -20,7 +19,6 @@ private:
 	string address;   // аж╪р
 	string dueDate;
 	string availability;
-
 
 public:
 	User() { };

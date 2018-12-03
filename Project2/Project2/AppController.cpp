@@ -33,8 +33,8 @@ int AppController::InputNumber() {
 	int num;
 	while (true) {
 		cin >> num;
-		if (num >= 1 && num <= 2) return num;
-		cout << "잘못 입력하셨습니다. 다시 입력해 주세요 (1~2) : ";
+		if (num >= 1 && num <= 3) return num;
+		cout << "잘못 입력하셨습니다. 다시 입력해 주세요 (1~3) : ";
 		
 	}
 
@@ -61,13 +61,13 @@ int AppController::Menu() {
 		{
 		case 1:
 			cout << "대여" << endl;
-			cout << "1번을 입력하면 도서, 2번을 입력하면 DVD를 대여합니다." << endl;
+			cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 대여합니다." << endl;
 			num = InputNumber();
 			librarian.Rent(num);
 			break;
 		case 2:
 			cout << "반납" << endl;
-			cout << "1번을 입력하면 도서, 2번을 입력하면 DVD를 반납합니다." << endl;
+			cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 반납합니다." << endl;
 			num = InputNumber();
 			librarian.Return(num);
 			break;
@@ -87,15 +87,21 @@ int AppController::Menu() {
 			{
 			case 1:
 				cout << "유저등록" << endl;
-				librarian.AddUser();
+				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 이용할 유저를 등록합니다." << endl;
+				num = InputNumber();
+				librarian.AddUser(num);
 				break;
 			case 2:
 				cout << "유저검색" << endl;
-				librarian.FindUser();
+				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 이용하는 유저를 검색합니다." << endl;
+				num = InputNumber();
+				librarian.FindUser(num);
 				break;
 			case 3:
 				cout << "유저목록" << endl;
-				librarian .UserList();
+				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 이용하는 유저리스트를 보여줍니다." << endl;
+				num = InputNumber();
+				librarian.UserList(num);
 				break;
 			case 0:
 				break;
@@ -113,13 +119,13 @@ int AppController::Menu() {
 			{
 			case 1:
 				cout << "등록" << endl;
-				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD를 등록합니다." << endl;
+				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 등록합니다." << endl;
 				num = InputNumber();
 				librarian.Add(num);
 				break;
 			case 2:
 				cout << "검색" << endl;
-				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD를 검색합니다." << endl;
+				cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지를 검색합니다." << endl;
 				num = InputNumber();
 				librarian.Find(num);
 				break;
@@ -133,7 +139,9 @@ int AppController::Menu() {
 			break;
 
 		case 6:
-			librarian.recoverAvailability();
+			cout << "1번을 입력하면 도서, 2번을 입력하면 DVD, 3번을 입력하면 잡지에 대한 대여 불가를 해제합니다." << endl;
+			num = InputNumber();
+			librarian.recoverAvailability(num);
 			break;
 
 		case 0:

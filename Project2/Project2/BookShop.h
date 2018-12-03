@@ -1,23 +1,18 @@
 #pragma once
 // 도서 대여점 클래스.
 
-#include <iostream>
-#include <vector>
-#include "Book.h"
-#include "Item.h"
+#include <fstream>
 #include "Shop.h"
-#include "UserData.h"
+#include "Book.h"
 
 class BookShop : public Shop
 {
+
 private:
-	vector<Book> m_books;      // 도서 목록.
+	vector<Book> m_books;   
+	vector<User> m_users;
 
 	Book* find_book(string title);
-
-	UserData userData;
-
-	User* find_user(string name);
 
 	#pragma once
 
@@ -26,7 +21,6 @@ public:
 
 	BookShop();
 	~BookShop();
-
 
 	 void Add();
 
@@ -42,4 +36,19 @@ public:
 
 	 void List();
 
+	 void readUserData();
+
+	 void writeUserData();
+
+	 User* find_user(string name);
+
+	 void getList();
+
+	 void recoverAvailability();
+
+	 void FindUser();
+
+	 void UserList();
+
+	 void AddUser();
 };
