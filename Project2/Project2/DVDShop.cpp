@@ -136,11 +136,15 @@ void DVDShop::Find()
 void DVDShop::Rent()
 {
 	char name[100];
+	char birth[100];
+	char number[100];
 	char title[100];
 	cin.sync();
 	cin.ignore();
 	cout << "유저이름 : "; cin.getline(name, 100);
-	User* user = find_user(name);
+	cout << "생일 : "; cin.getline(birth, 100);
+	cout << "전화번호 : "; cin.getline(number, 100);
+	User* user = find_user(name, birth, number);
 	if (user)
 	{
 		cout << "DVD제목 : "; cin.getline(title, 100);
@@ -168,11 +172,15 @@ void DVDShop::Rent()
 void DVDShop::Return()
 {
 	char name[100];
+	char birth[100];
+	char number[100];
 	char title[100];
 	cin.sync();
 	cin.ignore();
 	cout << "유저이름 : "; cin.getline(name, 100);
-	User* user = find_user(name);
+	cout << "생일 : "; cin.getline(birth, 100);
+	cout << "전화번호 : "; cin.getline(number, 100);
+	User* user = find_user(name, birth, number);
 	if (user)
 	{
 		cout << "DVD제목 : "; cin.getline(title, 100);
@@ -335,6 +343,15 @@ void DVDShop::getList() {
 	}
 }
 
+User* DVDShop::find_user(string name, string birth, string number) {
+	for (size_t i = 0; i < m_users.size(); i++)
+	{
+		if (m_users[i].getName() == name && m_users[i].getBirth() == birth && m_users[i].getPhone() == number)
+			return &m_users[i];
+	}
+	return NULL;
+}
+
 User* DVDShop::find_user(string name) {
 	for (size_t i = 0; i < m_users.size(); i++)
 	{
@@ -347,10 +364,15 @@ User* DVDShop::find_user(string name) {
 void DVDShop::FindUser()
 {
 	char name[100];
+	char birth[100];
+	char number[100];
+	char title[100];
 	cin.sync();
 	cin.ignore();
-	cout << "이름 : "; cin.getline(name, 100);
-	User* user = find_user(name);
+	cout << "유저이름 : "; cin.getline(name, 100);
+	cout << "생일 : "; cin.getline(birth, 100);
+	cout << "전화번호 : "; cin.getline(number, 100);
+	User* user = find_user(name, birth, number);
 	if (user) cout << user->getName() << " 유저는 존재합니다." << endl;
 	else cout << "검색하려는 유저가 존재하지 않습니다." << endl;
 	system("pause");
@@ -378,9 +400,9 @@ void DVDShop::AddUser()
 	cin.ignore();
 	User user;
 	cout << "이름 : "; cin.getline(str, 100);
-	User* finduser = find_user(str);
 	cout << "생년월일 : "; cin.getline(str2, 100);
 	cout << "전화번호 : "; cin.getline(str3, 100);
+	User* finduser = find_user(str, str2, str3);
 	if (finduser != NULL && finduser->getName() == str && finduser->getBirth() == str2 && finduser->getPhone() == str3) {
 		cout << "동일한 정보를 가진 유저가 이미 존재합니다." << endl;
 		return;

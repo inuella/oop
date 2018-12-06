@@ -36,6 +36,8 @@ public:
 
 	void writeUserData();
 
+	User* find_user(string name, string birth, string number);
+
 	User* find_user(string name);
 
 	void getList();
