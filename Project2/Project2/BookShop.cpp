@@ -381,19 +381,21 @@
 	{
 		char str[100];
 		char str2[100];
+		char str3[100];
 		cin.sync();
 		cin.ignore();
 		User user;
 		cout << "이름 : "; cin.getline(str, 100);
 		User* finduser = find_user(str);
 		cout << "생년월일 : "; cin.getline(str2, 100);
-		if (finduser != NULL && finduser->getName() == str && finduser->getBirth() == str2) {
-			cout << "동일한 이름과 생일을 가진사람이 이미 존재합니다." << endl;
+		cout << "전화번호 : "; cin.getline(str3, 100); 
+		if (finduser != NULL && finduser->getName() == str && finduser->getBirth() == str2 && finduser->getPhone() == str3) {
+			cout << "동일한 정보를 가진 유저가 이미 존재합니다." << endl;
 			return;
 		}
 		user.setName(str);
 		user.setBirth(str2);
-		cout << "전화번호 : "; cin.getline(str, 100); user.setPhone(str);
+		user.setPhone(str3);
 		cout << "주소 : "; cin.getline(str, 100); user.setAddress(str);
 		user.setDueDate("정보 없음");
 		user.setAvailability("대여 가능");
