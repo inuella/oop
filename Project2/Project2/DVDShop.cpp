@@ -161,7 +161,7 @@ void DVDShop::Rent()
 				else cout << "이전의 DVD연체로 인해 대여가 불가능한 상태입니다." << endl;
 
 			}
-			else cout << "입력하신 DVD의 제고가 없습니다." << endl;
+			else cout << "입력하신 DVD의 재고가 없습니다." << endl;
 		}
 		else cout << "입력하신 DVD가 존재하지 않습니다." << endl;
 	}
@@ -195,7 +195,7 @@ void DVDShop::Return()
 				user->setDueDate("정보 없음");
 
 			}
-			else cout << "입력하신 DVD의 제고가 없습니다." << endl;
+			else cout << "입력한 DVD와 대여한 DVD가 일치하지 않습니다." << endl;
 		}
 		else cout << "입력하신 책이 존재하지 않습니다." << endl;
 	}
@@ -285,7 +285,7 @@ void DVDShop::RentList()
 void DVDShop::List()
 {
 	cout << "-------------------------------------------------------------" << endl;
-	cout << "제목\t제작사\t제고/전체수량\t[DVD]" << endl;
+	cout << "제목\t제작사\t재고/전체수량\t[DVD]" << endl;
 	cout << "-------------------------------------------------------------" << endl;
 	if (m_dvds.size() == 0) cout << "등록된 DVD가 없습니다." << endl;
 	for (size_t i = 0; i < m_dvds.size(); i++) cout << m_dvds[i] << endl;

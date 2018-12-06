@@ -159,7 +159,7 @@ void MagazineShop::Rent()
 				else cout << "이전의 연체로 인해 대여가 불가능한 상태입니다." << endl;
 
 			}
-			else cout << "입력하신 잡지의 제고가 없습니다." << endl;
+			else cout << "입력하신 잡지의 재고가 없습니다." << endl;
 		}
 		else cout << "입력하신 잡지가 존재하지 않습니다." << endl;
 	}
@@ -193,7 +193,7 @@ void MagazineShop::Return()
 				user->setDueDate("정보 없음");
 
 			}
-			else cout << "입력하신 잡지의 제고가 없습니다." << endl;
+			else cout << "입력하신 잡지의 재고가 없습니다." << endl;
 		}
 		else cout << "입력하신 잡지가 존재하지 않습니다." << endl;
 	}
@@ -287,7 +287,7 @@ void MagazineShop::RentList()
 void MagazineShop::List()
 {
 	cout << "-------------------------------------------------------------" << endl;
-	cout << "제목\t호수\t제고/전체수량\t[잡지]" << endl;
+	cout << "제목\t호수\t재고/전체수량\t[잡지]" << endl;
 	cout << "-------------------------------------------------------------" << endl;
 	if (m_magazines.size() == 0) cout << "등록된 잡지가 없습니다." << endl;
 	for (size_t i = 0; i < m_magazines.size(); i++) cout << m_magazines[i] << endl;

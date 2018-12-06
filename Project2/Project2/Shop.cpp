@@ -3,7 +3,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-// 도서 대여점 클래스.
+// 대여점 클래스.
 #include "Shop.h"
 #include <time.h>
 

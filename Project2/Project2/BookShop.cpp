@@ -166,7 +166,7 @@
 					else cout << "이전의 도서연체로 인해 대여가 불가능한 상태입니다." << endl;
 
 				}
-				else cout << "입력하신 도서의 제고가 없습니다." << endl;
+				else cout << "입력하신 도서의 재고가 없습니다." << endl;
 			}
 			else cout << "입력하신 책이 존재하지 않습니다." << endl;
 		}
@@ -200,7 +200,7 @@
 						user->setDueDate("정보 없음");
 
 				}
-				else cout << "입력하신 도서의 제고가 없습니다." << endl;
+				else cout << "입력한 도서와 대여한 도서가 일치하지 않습니다." << endl;
 			}
 			else cout << "입력하신 책이 존재하지 않습니다." << endl;
 		}
@@ -293,7 +293,7 @@
 	void BookShop::List()
 	{
 		cout << "-------------------------------------------------------------" << endl;
-		cout << "제목\t출판사\t제고/전체수량\t[도서]" << endl;
+		cout << "제목\t출판사\t재고/전체수량\t[도서]" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		if (m_books.size() == 0) cout << "등록된 도서가 없습니다." << endl;
 		for (size_t i = 0; i < m_books.size(); i++) cout << m_books[i] << endl;

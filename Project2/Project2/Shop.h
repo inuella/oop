@@ -1,6 +1,6 @@
 #pragma once
 #pragma once
-// 도서 대여점 클래스.
+// 대여점 클래스.
 
 #include <iostream>
 #include <vector>
@@ -21,7 +21,7 @@ public:
 
 	string timeCheck();
 
-	// 도서 추가 함수.
+	// 추가 함수.
 	virtual void Add() = 0;
 
 	string monthChange(string mon);
