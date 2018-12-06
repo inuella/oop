@@ -197,7 +197,7 @@ void DVDShop::Return()
 			}
 			else cout << "입력한 DVD와 대여한 DVD가 일치하지 않습니다." << endl;
 		}
-		else cout << "입력하신 책이 존재하지 않습니다." << endl;
+		else cout << "입력한 DVD와 대여한 DVD가 일치하지 않습니다." << endl;
 	}
 	else cout << "입력하신 유저가 존재하지 않습니다." << endl;
 	system("pause");

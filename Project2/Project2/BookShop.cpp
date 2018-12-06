@@ -202,7 +202,7 @@
 				}
 				else cout << "입력한 도서와 대여한 도서가 일치하지 않습니다." << endl;
 			}
-			else cout << "입력하신 책이 존재하지 않습니다." << endl;
+			else cout << "입력한 도서와 대여한 도서가 일치하지 않습니다." << endl;
 		}
 		else cout << "입력하신 유저가 존재하지 않습니다." << endl;
 		system("pause");

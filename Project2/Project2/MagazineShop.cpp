@@ -193,9 +193,9 @@ void MagazineShop::Return()
 				user->setDueDate("정보 없음");
 
 			}
-			else cout << "입력하신 잡지의 재고가 없습니다." << endl;
+			else cout << "입력한 잡지와 대여한 잡지가 일치하지 않습니다." << endl;
 		}
-		else cout << "입력하신 잡지가 존재하지 않습니다." << endl;
+		else cout << "입력한 잡지와 대여한 잡지가 일치하지 않습니다." << endl;
 	}
 	else cout << "입력하신 유저가 존재하지 않습니다." << endl;
 	system("pause");
